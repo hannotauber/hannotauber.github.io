@@ -1,0 +1,26 @@
+# The URL the site will be built for
+base_url = "https://me"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = false
+
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+theme = "hook"
+highlight_code = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+title = "Hanno Tauber"
+
+taxonomies = [
+  { name = "tags", feed = true }
+]
+
+[extra]
+# Put all your custom variables here
+
+links = [
+  { title = "Mail", href = "mailto:hannotauber@posteo.net" }
+]
