@@ -13,7 +13,7 @@ tags=["ipfs","containers"]
 Related project [InterPlanetary Docker Registry](https://github.com/ipdr/ipdr), a cli tool to push/pull images on ipfs written in go.
 
 > High-level overview
-e <img src="/assets/blog/container_image_registry_on_ipfs/ipdr_arch.png" />
+> <img src="/blog/ipdr_arch.png" />
 > License [MIT](https://github.com/ipdr/ipdr/blob/master/LICENSE)
 
 ```
@@ -30,20 +30,11 @@ It includes also support with a local server as a docker registry but does not s
 This solution serves the purpose of using ipfs as the filestorage of container images for local usage development.
 
 
-## Proposed direction
-
-### Architecture
-
-<figure>
-  <img src="/assets/blog/container_image_registry_on_ipfs/arch.png" />
-  <figcaption><a href="https://mermaid.live/edit#eyJjb2RlIjoiZ3JhcGggTFJcbiAgICBwb2RtYW4gLS0-fHB1c2gvcHVsbHwgcmVnaXN0cnlcbiAgICBkb2NrZXIgLS0-fHB1c2gvcHVsbHwgcmVnaXN0cnlcbiAgICByZWdpc3RyeSAtLWxheWVycy0tPiBpcGZzX25ldHdvcmtcbiAgICBpcGZzX25ldHdvcmsgLS1sYXllcnMtLT4gcmVnaXN0cnkiLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ">Edit</a></figcaption>
-</figure>
-
 ## Appendix
 
 ### Graphs
 
-1. Architecture.
+1. Architecture (
 ```
 graph LR
     podman -->|push/pull| registry
