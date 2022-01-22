@@ -29,26 +29,22 @@ It includes also support with a local server as a docker registry but does not s
 
 This solution serves the purpose of using ipfs as the filestorage of container images for local usage development.
 
-
 ## Proposed direction
 
 ### Architecture
 
 <figure>
   <img src="/assets/blog/container_image_registry_on_ipfs/arch.png" />
-  <figcaption><a href="https://mermaid.live/edit#eyJjb2RlIjoiZ3JhcGggTFJcbiAgICBwb2RtYW4gLS0-fHB1c2gvcHVsbHwgcmVnaXN0cnlcbiAgICBkb2NrZXIgLS0-fHB1c2gvcHVsbHwgcmVnaXN0cnlcbiAgICByZWdpc3RyeSAtLWxheWVycy0tPiBpcGZzX25ldHdvcmtcbiAgICBpcGZzX25ldHdvcmsgLS1sYXllcnMtLT4gcmVnaXN0cnkiLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ">Edit</a></figcaption>
+  <figcaption><a href="https://mermaid.live/edit/#pako:eNp1kLkOwjAMhl8l8kyF6NiBCTYmWCNVpnFpRC7lGCrg3UkJiNtDZMXf__s4QWcFQQMHj25gmy03LIezQqNhVbU8uxSGuUtKnRk6yUq9vCHti8zTQYbox_I9xYRWlcKRfMguTLo-tCa3ahcFIiP-mNRPlxcVe3f5CdXsZ6v7PF_l-mMSYbsj-Y-lb0KYgSavUYp8qdNEc4gDaeLQ5FRQj0lFDtxcMpqcwEhrIaP10PSoAs0AU7S70XTQRJ_oAa0k5uX1nbpcAbY9f_0">Edit</a></figcaption>
 </figure>
 
-## Appendix
+In the proposed architecture the registry is an ipfs node that provider Docker Registry API so clients can push and pull images.
 
-### Graphs
-
-1. Architecture.
+Usage example based on docker [registry](https://docs.docker.com/registry/configuration/):
 ```
-graph LR
-    podman -->|push/pull| registry
-    docker -->|push/pull| registry
-    registry --layers--> ipfs_network
-    ipfs_network --layers--> registry
+docker build -t ipfs-registry .
+docker run -d -p 5000:5000 --restart=always \
+             -v `pwd`/config.yml:/etc/docker/registry/config.yml \
+             ipfs-registry
+docker pull localhost:5000/python:latest
 ```
-
