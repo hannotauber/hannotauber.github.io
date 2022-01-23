@@ -61,7 +61,7 @@ Interesting in Rust we found the project trow has even envision, under [Advanced
 
 > Every (or most) nodes run an instance of the Trow Back End. These instances communicate and share files with each other in a P2P style (similar to BitTorrent). This should provide an enormous speed in up in image deployment time for the cluster. It should also be designed to place minimal extra load on nodes.
 
-Only alpha toolkit for ipfs under [ipfs 0.2.1](https://docs.rs/ipfs/0.2.1/ipfs/) bit promising.
+Only alpha toolkit for ipfs under [ipfs 0.2.1](https://docs.rs/ipfs/0.2.1/ipfs/) but promising.
 
 #### Python
 Red hat's container registry [quay](https://github.com/quay/quay) projects is in Python but really hard to find any ipfs node implementation at the time of [search](https://duckduckgo.com/?q=ipfs+server+node+python&ia=web).
