@@ -51,13 +51,13 @@ docker pull localhost:5000/python:latest
 ```
 
 
-### Implementation
+### Implementation details
 
 #### Go
 Looking for open source implementations of Docker HTTP API v2  registry and ipfs nodes, starting from go language projects, we were unable to find registry's code repository (now [distribution](https://github.com/distribution/distribution)).<a href="#ipdr">IPDR</a> Docker HTTP API implementation reference license to Google in [code](https://github.com/ipdr/ipdr/blob/master/server/registry/registry.go#L1). On the other hand, official ipfs node implementation, with go, has really good organised [packages](https://github.com/ipfs/go-ipfs#packages).
 
 #### Rust
-Interesting in Rust we found the project trow has even envision, under [Advanced Distribution Deployment](https://github.com/ContainerSolutions/trow/blob/main/docs/ARCHITECTURE.md#advanced-distribution-deployment) as:
+Interesting in Rust we found the project [trow](https://github.com/ContainerSolutions/trow) has even envision, under [Advanced Distribution Deployment](https://github.com/ContainerSolutions/trow/blob/main/docs/ARCHITECTURE.md#advanced-distribution-deployment) as:
 
 > Every (or most) nodes run an instance of the Trow Back End. These instances communicate and share files with each other in a P2P style (similar to BitTorrent). This should provide an enormous speed in up in image deployment time for the cluster. It should also be designed to place minimal extra load on nodes.
 
