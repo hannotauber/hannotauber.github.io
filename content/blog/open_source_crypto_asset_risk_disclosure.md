@@ -9,7 +9,7 @@ DRAFT 0.1
 
 ## Goals
 
-CryptoAsset Risk Disclosure should be a versioned human readable text that would address risks of investments in cryptoasset products. Purpose is to inform, educate and help investors, engineers or enthusiast. While not created to demotivate or stop participation, text should be address capital and emotional risks in crypotasset activities.  
+Open Source CryptoAsset Risk Disclosure (OSCARD) should be a versioned human readable text that would address risks of investments in cryptoasset products. Purpose is to inform, educate and help investors, engineers or enthusiast. While not created to demotivate or stop participation, text should be address capital and emotional risks in crypotasset activities.
 
 ## Format
 See [MIME Types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#types)
