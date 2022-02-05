@@ -32,3 +32,7 @@ tags = ["ai","trading"]
 
 ### Technology
 - [ElegantRL “小雅”: Scalable and Elastic Deep Reinforcement Learning](https://github.com/AI4Finance-Foundation/ElegantRL). Columbia Univesrity 2020 research github is under same account.
+- [FinRL: Deep Reinforcement Learning for Quantitative Finance](https://github.com/AI4Finance-Foundation/FinRL)
+
+## AI4Finace
+- [Youtube: FinRL: A Deep Reinforcement Learning Library for Automated Trading in Quantitative Finance](https://www.youtube.com/watch?v=ZSGJjtM-5jA)
