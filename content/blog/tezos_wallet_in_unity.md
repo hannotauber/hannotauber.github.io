@@ -1,6 +1,10 @@
 +++
 title = "Tezos wallet in Unity"
 draft = true
+
+[extra]
+author = "Hanno Tauber"
+
 [taxonomies]
 tags=["tezos","unity", "wallet"]
 +++

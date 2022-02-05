@@ -2,6 +2,9 @@
 title = "NFT marketplace exploration"
 draft = true
 
+[extra]
+author = "Hanno Tauber"
+
 [taxonomies]
 tags=["tezos","nft","marketplace"]
 +++

@@ -2,6 +2,9 @@
 title = "NFT and games"
 draft = true
 
+[extra]
+author = "Hanno Tauber"
+
 [taxonomies]
 tags=["nft","games"]
 +++

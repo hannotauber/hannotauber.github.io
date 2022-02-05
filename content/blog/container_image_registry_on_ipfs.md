@@ -1,11 +1,17 @@
 +++
 title = "Container image registry on ipfs"
 
+date = 2022-01-23T12:21:52Z
+
+[extra]
+author = "Hanno Tauber"
+
 [taxonomies]
 tags=["ipfs","containers","wip"]
 
 +++
-Last updated: Sun Jan 23 12:21:52 EST 2022 <em style="color: #FFFFFF; background-color: #FCA311">#WIP</em>
+
+DRAFT 0.1
 
 ## Existing Solutions
 
