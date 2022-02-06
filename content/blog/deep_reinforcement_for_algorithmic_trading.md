@@ -5,7 +5,7 @@ draft = true
 date = 2022-02-05T00:00:00Z
 
 [extra]
-author = "Hanno Tauber, dmtrsflaco"
+author = "Hanno Tauber, Dmtrs Flaco Meng"
 
 [taxonomies]
 tags = ["ai","trading"]
