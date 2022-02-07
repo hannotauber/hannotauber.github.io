@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hanno Tauber | Container image registry on ipfs</title>
+    
+    <link rel="stylesheet" href="https://hannotauber.github.io/style.css?h=b34ad8e995751018c83ac1601538f0ddfaa4619f544cd485ed95cda73278a8c3">
+    
+</head>
+<body>
+    
+<header class="space">
+    <a href="https:&#x2F;&#x2F;hannotauber.github.io">&LeftArrow; Home</a>
+</header>
+
+    
+<main>
+    <h1>Container image registry on ipfs</h1>
+    
+    <p class="secondary">23 January, 2022</p>
+    
+    <div class="space"></div>
+    <p>DRAFT 0.1</p>
+<h2 id="existing-solutions">Existing Solutions</h2>
+<h3 id="ipdr">IPDR</h3>
+<p>Related project <a href="https://github.com/ipdr/ipdr">InterPlanetary Docker Registry</a>, a cli tool to push/pull images on ipfs written in go.</p>
+<blockquote>
+<p>High-level overview
+e <img src="/assets/blog/container_image_registry_on_ipfs/ipdr_arch.png" />
+License <a href="https://github.com/ipdr/ipdr/blob/master/LICENSE">MIT</a></p>
+</blockquote>
+<pre><code>$ ipdr push example&#x2F;helloworld
+$ ipdr pull &#x2F;ipfs&#x2F;QmagW4H1uE5rkm8A6iVS8WuiyjcWQzqXRHbM3KuUfzrCup
+</code></pre>
+<p><code>ipdr</code> cli tool acts as a middle man to integrate 2 services:</p>
+<ul>
+<li>A container registry.</li>
+<li>IPFS as filesystem.</li>
+</ul>
+<p>It includes also support with a local server as a docker registry but does not seem to work only for <code>pull</code>.  Documentation compatibility states <a href="https://docs.docker.com/registry/spec/api/#docker-registry-http-api-v2">Docker Registry HTTP API V2</a>, so anyone could use the software <em>on top</em> of registry as cli <em>or</em> along internal implementation of registry <code>pulls</code> for convenience.</p>
+<p>This solution serves the purpose of using ipfs as the filestorage of container images for local usage development.</p>
+<h2 id="proposed-direction">Proposed direction</h2>
+<h3 id="architecture">Architecture</h3>
+<figure>
+<img src="/assets/blog/container_image_registry_on_ipfs/arch.png" />
+<figcaption><a href="https://mermaid.live/edit/#pako:eNp1kLkOwjAMhl8l8kyF6NiBCTYmWCNVpnFpRC7lGCrg3UkJiNtDZMXf__s4QWcFQQMHj25gmy03LIezQqNhVbU8uxSGuUtKnRk6yUq9vCHti8zTQYbox_I9xYRWlcKRfMguTLo-tCa3ahcFIiP-mNRPlxcVe3f5CdXsZ6v7PF_l-mMSYbsj-Y-lb0KYgSavUYp8qdNEc4gDaeLQ5FRQj0lFDtxcMpqcwEhrIaP10PSoAs0AU7S70XTQRJ_oAa0k5uX1nbpcAbY9f_0">Edit</a></figcaption>
+</figure>
+<p>In the proposed architecture the registry is an ipfs node that provider Docker Registry API so clients can push and pull images.</p>
+<p>Usage example based on docker <a href="https://docs.docker.com/registry/configuration/">registry</a>:</p>
+<pre><code>docker build -t ipfs-registry .
+docker run -d -p 5000:5000 --restart=always \
+           -v `pwd`&#x2F;config.yml:&#x2F;etc&#x2F;docker&#x2F;registry&#x2F;config.yml \
+           ipfs-registry
+docker pull localhost:5000&#x2F;python:latest
+</code></pre>
+<h3 id="implementation-details">Implementation details</h3>
+<h4 id="go">Go</h4>
+<p>Looking for open source implementations of Docker HTTP API v2  registry and ipfs nodes, starting from go language projects, we were unable to find registry's code repository (now <a href="https://github.com/distribution/distribution">distribution</a>).<a href="#ipdr">IPDR</a> Docker HTTP API implementation reference license to Google in <a href="https://github.com/ipdr/ipdr/blob/master/server/registry/registry.go#L1">code</a>. On the other hand, official ipfs node implementation, with go, has really good organised <a href="https://github.com/ipfs/go-ipfs#packages">packages</a>.</p>
+<h4 id="rust">Rust</h4>
+<p>Interesting in Rust we found the project <a href="https://github.com/ContainerSolutions/trow">trow</a> has even envision, under <a href="https://github.com/ContainerSolutions/trow/blob/main/docs/ARCHITECTURE.md#advanced-distribution-deployment">Advanced Distribution Deployment</a> as:</p>
+<blockquote>
+<p>Every (or most) nodes run an instance of the Trow Back End. These instances communicate and share files with each other in a P2P style (similar to BitTorrent). This should provide an enormous speed in up in image deployment time for the cluster. It should also be designed to place minimal extra load on nodes.</p>
+</blockquote>
+<p>Only alpha toolkit for ipfs under <a href="https://docs.rs/ipfs/0.2.1/ipfs/">ipfs 0.2.1</a> but promising.</p>
+<h4 id="python">Python</h4>
+<p>Red hat's container registry <a href="https://github.com/quay/quay">quay</a> projects is in Python but really hard to find any ipfs node implementation at the time of <a href="https://duckduckgo.com/?q=ipfs+server+node+python&amp;ia=web">search</a>.</p>
+
+</main>
+
+    <div class="dark-mode-buttons">
+        <button class="dark-mode-button" id="dark-mode-on"><img src="https://hannotauber.github.io/dark_mode.svg" width="24" height="24" alt=""></button>
+        <button class="dark-mode-button" id="dark-mode-off"><img src="https://hannotauber.github.io/light_mode.svg" width="24" height="24" alt=""></button>
+    </div>
+    <script>
+        const cls = document.body.classList;
+        const getSessionTheme = sessionStorage.getItem("theme");
+        if (getSessionTheme === "dark") {
+            cls.toggle("dark-mode", true);
+        } else if (getSessionTheme === "light") {
+            cls.toggle("dark-mode", false);
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            cls.toggle("dark-mode", true);
+        }
+
+        document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+            cls.toggle("dark-mode", true);
+            sessionStorage.setItem("theme", "dark");
+        });
+        document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+            cls.toggle("dark-mode", false);
+            sessionStorage.setItem("theme", "light");
+        });
+    </script>
+    <noscript>
+        <style>
+            .dark-mode-buttons {
+                display: none;
+            }
+        </style>
+    </noscript>
+</body>
+</html>

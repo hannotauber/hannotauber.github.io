@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Hanno Tauber - nft</title>
+	<link href="https://hannotauber.github.io/tags/nft/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://hannotauber.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-02-04T00:00:00+00:00</updated>
+	<id>https://hannotauber.github.io/tags/nft/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Proposal: Open Source CryptoAsset Risk Disclosure</title>
+		<published>2022-02-04T00:00:00+00:00</published>
+		<updated>2022-02-04T00:00:00+00:00</updated>
+		<link href="https://hannotauber.github.io/blog/open-source-crypto-asset-risk-disclosure/" type="text/html"/>
+		<id>https://hannotauber.github.io/blog/open-source-crypto-asset-risk-disclosure/</id>
+		<content type="html">&lt;p&gt;DRAFT 0.1&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;&#x2F;h2&gt;
+&lt;p&gt;Open Source CryptoAsset Risk Disclosure (OSCARD) should be a versioned human readable text that would address risks of investments in cryptoasset products. Purpose is to inform, educate and help investors, engineers or enthusiast. While not created to demotivate or stop participation, text should be address capital and emotional risks in crypotasset activities.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;format&quot;&gt;Format&lt;&#x2F;h2&gt;
+&lt;p&gt;See &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;HTTP&#x2F;Basics_of_HTTP&#x2F;MIME_types#types&quot;&gt;MIME Types&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;audio&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;text&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;image&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;&#x2F;h2&gt;
+&lt;p&gt;List of institutional and regulatory alerts&#x2F;warnings and advices.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESMA
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.esma.europa.eu&#x2F;sites&#x2F;default&#x2F;files&#x2F;library&#x2F;esma50-157-1391_crypto_advice.pdf&quot;&gt;Advice Initial Coin Offerings and Crypto-Assets&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;NFA Investor Advisory
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nfa.futures.org&#x2F;investors&#x2F;investor-advisory.html&quot;&gt;Futures on Virtual Currencies Including Bitcoin&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;CFTC Customer Advisory
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cftc.gov&#x2F;sites&#x2F;default&#x2F;files&#x2F;idc&#x2F;groups&#x2F;public&#x2F;%40customerprotection&#x2F;documents&#x2F;file&#x2F;customeradvisory_urvct121517.pdf&quot;&gt;Understand the Risks of Virtual Currency Trading&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cftc.gov&#x2F;sites&#x2F;default&#x2F;files&#x2F;idc&#x2F;groups&#x2F;public&#x2F;%40customerprotection&#x2F;documents&#x2F;file&#x2F;customeradvisory_pumpdump0218.pdf&quot;&gt;Beware Virtual Currency Pump-and-Dump Schemes&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;FINRA
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.finra.org&#x2F;investors&#x2F;alerts&#x2F;bitcoin-more-bit-risky&quot;&gt;Bitcoin: More than a Bit Risky&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;SEC
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.sec.gov&#x2F;oiea&#x2F;investor-alerts-bulletins&#x2F;investoralertsia_bitcoin.html&quot;&gt;Bitcoin and other Virtual Currency-related Investments&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;FCA
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.fca.org.uk&#x2F;scamsmart&#x2F;cryptoasset-investment-scams&quot;&gt;Warning on cryptoassets&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.fca.org.uk&#x2F;scamsmart&#x2F;cryptoasset-investment-scams&quot;&gt;Cryptoasset investment scams&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;J.P.Morgan
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.jpmorgan.com&#x2F;disclosures&#x2F;cryptoasset-disclosure&quot;&gt;Crypoasset Disclosure&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;license&quot;&gt;License&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;&quot;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

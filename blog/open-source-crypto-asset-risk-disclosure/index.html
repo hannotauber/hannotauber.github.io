@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hanno Tauber | Proposal: Open Source CryptoAsset Risk Disclosure</title>
+    
+    <link rel="stylesheet" href="https://hannotauber.github.io/style.css?h=b34ad8e995751018c83ac1601538f0ddfaa4619f544cd485ed95cda73278a8c3">
+    
+</head>
+<body>
+    
+<header class="space">
+    <a href="https:&#x2F;&#x2F;hannotauber.github.io">&LeftArrow; Home</a>
+</header>
+
+    
+<main>
+    <h1>Proposal: Open Source CryptoAsset Risk Disclosure</h1>
+    
+    <p class="secondary">4 February, 2022</p>
+    
+    <div class="space"></div>
+    <p>DRAFT 0.1</p>
+<h2 id="goals">Goals</h2>
+<p>Open Source CryptoAsset Risk Disclosure (OSCARD) should be a versioned human readable text that would address risks of investments in cryptoasset products. Purpose is to inform, educate and help investors, engineers or enthusiast. While not created to demotivate or stop participation, text should be address capital and emotional risks in crypotasset activities.</p>
+<h2 id="format">Format</h2>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#types">MIME Types</a></p>
+<ul>
+<li><code>audio</code></li>
+<li><code>text</code></li>
+<li><code>image</code></li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>List of institutional and regulatory alerts/warnings and advices.</p>
+<ul>
+<li>ESMA
+<ul>
+<li><a href="https://www.esma.europa.eu/sites/default/files/library/esma50-157-1391_crypto_advice.pdf">Advice Initial Coin Offerings and Crypto-Assets</a></li>
+</ul>
+</li>
+<li>NFA Investor Advisory
+<ul>
+<li><a href="https://www.nfa.futures.org/investors/investor-advisory.html">Futures on Virtual Currencies Including Bitcoin</a></li>
+</ul>
+</li>
+<li>CFTC Customer Advisory
+<ul>
+<li><a href="https://www.cftc.gov/sites/default/files/idc/groups/public/%40customerprotection/documents/file/customeradvisory_urvct121517.pdf">Understand the Risks of Virtual Currency Trading</a></li>
+<li><a href="https://www.cftc.gov/sites/default/files/idc/groups/public/%40customerprotection/documents/file/customeradvisory_pumpdump0218.pdf">Beware Virtual Currency Pump-and-Dump Schemes</a></li>
+</ul>
+</li>
+<li>FINRA
+<ul>
+<li><a href="https://www.finra.org/investors/alerts/bitcoin-more-bit-risky">Bitcoin: More than a Bit Risky</a></li>
+</ul>
+</li>
+<li>SEC
+<ul>
+<li><a href="https://www.sec.gov/oiea/investor-alerts-bulletins/investoralertsia_bitcoin.html">Bitcoin and other Virtual Currency-related Investments</a></li>
+</ul>
+</li>
+<li>FCA
+<ul>
+<li><a href="https://www.fca.org.uk/scamsmart/cryptoasset-investment-scams">Warning on cryptoassets</a></li>
+<li><a href="https://www.fca.org.uk/scamsmart/cryptoasset-investment-scams">Cryptoasset investment scams</a></li>
+</ul>
+</li>
+<li>J.P.Morgan
+<ul>
+<li><a href="https://www.jpmorgan.com/disclosures/cryptoasset-disclosure">Crypoasset Disclosure</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="license">License</h2>
+<ul>
+<li><a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></li>
+</ul>
+
+</main>
+
+    <div class="dark-mode-buttons">
+        <button class="dark-mode-button" id="dark-mode-on"><img src="https://hannotauber.github.io/dark_mode.svg" width="24" height="24" alt=""></button>
+        <button class="dark-mode-button" id="dark-mode-off"><img src="https://hannotauber.github.io/light_mode.svg" width="24" height="24" alt=""></button>
+    </div>
+    <script>
+        const cls = document.body.classList;
+        const getSessionTheme = sessionStorage.getItem("theme");
+        if (getSessionTheme === "dark") {
+            cls.toggle("dark-mode", true);
+        } else if (getSessionTheme === "light") {
+            cls.toggle("dark-mode", false);
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            cls.toggle("dark-mode", true);
+        }
+
+        document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+            cls.toggle("dark-mode", true);
+            sessionStorage.setItem("theme", "dark");
+        });
+        document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+            cls.toggle("dark-mode", false);
+            sessionStorage.setItem("theme", "light");
+        });
+    </script>
+    <noscript>
+        <style>
+            .dark-mode-buttons {
+                display: none;
+            }
+        </style>
+    </noscript>
+</body>
+</html>

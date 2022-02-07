@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Hanno Tauber - wip</title>
+	<link href="https://hannotauber.github.io/tags/wip/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://hannotauber.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-01-23T12:21:52+00:00</updated>
+	<id>https://hannotauber.github.io/tags/wip/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Container image registry on ipfs</title>
+		<published>2022-01-23T12:21:52+00:00</published>
+		<updated>2022-01-23T12:21:52+00:00</updated>
+		<link href="https://hannotauber.github.io/blog/container-image-registry-on-ipfs/" type="text/html"/>
+		<id>https://hannotauber.github.io/blog/container-image-registry-on-ipfs/</id>
+		<content type="html">&lt;p&gt;DRAFT 0.1&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;existing-solutions&quot;&gt;Existing Solutions&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;ipdr&quot;&gt;IPDR&lt;&#x2F;h3&gt;
+&lt;p&gt;Related project &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ipdr&#x2F;ipdr&quot;&gt;InterPlanetary Docker Registry&lt;&#x2F;a&gt;, a cli tool to push&#x2F;pull images on ipfs written in go.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;High-level overview
+e &lt;img src=&quot;&#x2F;assets&#x2F;blog&#x2F;container_image_registry_on_ipfs&#x2F;ipdr_arch.png&quot; &#x2F;&gt;
+License &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ipdr&#x2F;ipdr&#x2F;blob&#x2F;master&#x2F;LICENSE&quot;&gt;MIT&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;$ ipdr push example&amp;#x2F;helloworld
+$ ipdr pull &amp;#x2F;ipfs&amp;#x2F;QmagW4H1uE5rkm8A6iVS8WuiyjcWQzqXRHbM3KuUfzrCup
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;ipdr&lt;&#x2F;code&gt; cli tool acts as a middle man to integrate 2 services:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A container registry.&lt;&#x2F;li&gt;
+&lt;li&gt;IPFS as filesystem.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It includes also support with a local server as a docker registry but does not seem to work only for &lt;code&gt;pull&lt;&#x2F;code&gt;.  Documentation compatibility states &lt;a href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;registry&#x2F;spec&#x2F;api&#x2F;#docker-registry-http-api-v2&quot;&gt;Docker Registry HTTP API V2&lt;&#x2F;a&gt;, so anyone could use the software &lt;em&gt;on top&lt;&#x2F;em&gt; of registry as cli &lt;em&gt;or&lt;&#x2F;em&gt; along internal implementation of registry &lt;code&gt;pulls&lt;&#x2F;code&gt; for convenience.&lt;&#x2F;p&gt;
+&lt;p&gt;This solution serves the purpose of using ipfs as the filestorage of container images for local usage development.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;proposed-direction&quot;&gt;Proposed direction&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;architecture&quot;&gt;Architecture&lt;&#x2F;h3&gt;
+&lt;figure&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;blog&#x2F;container_image_registry_on_ipfs&#x2F;arch.png&quot; &#x2F;&gt;
+&lt;figcaption&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mermaid.live&#x2F;edit&#x2F;#pako:eNp1kLkOwjAMhl8l8kyF6NiBCTYmWCNVpnFpRC7lGCrg3UkJiNtDZMXf__s4QWcFQQMHj25gmy03LIezQqNhVbU8uxSGuUtKnRk6yUq9vCHti8zTQYbox_I9xYRWlcKRfMguTLo-tCa3ahcFIiP-mNRPlxcVe3f5CdXsZ6v7PF_l-mMSYbsj-Y-lb0KYgSavUYp8qdNEc4gDaeLQ5FRQj0lFDtxcMpqcwEhrIaP10PSoAs0AU7S70XTQRJ_oAa0k5uX1nbpcAbY9f_0&quot;&gt;Edit&lt;&#x2F;a&gt;&lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+&lt;p&gt;In the proposed architecture the registry is an ipfs node that provider Docker Registry API so clients can push and pull images.&lt;&#x2F;p&gt;
+&lt;p&gt;Usage example based on docker &lt;a href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;registry&#x2F;configuration&#x2F;&quot;&gt;registry&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;docker build -t ipfs-registry .
+docker run -d -p 5000:5000 --restart=always \
+           -v `pwd`&amp;#x2F;config.yml:&amp;#x2F;etc&amp;#x2F;docker&amp;#x2F;registry&amp;#x2F;config.yml \
+           ipfs-registry
+docker pull localhost:5000&amp;#x2F;python:latest
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;implementation-details&quot;&gt;Implementation details&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;go&quot;&gt;Go&lt;&#x2F;h4&gt;
+&lt;p&gt;Looking for open source implementations of Docker HTTP API v2  registry and ipfs nodes, starting from go language projects, we were unable to find registry&#x27;s code repository (now &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;distribution&#x2F;distribution&quot;&gt;distribution&lt;&#x2F;a&gt;).&lt;a href=&quot;#ipdr&quot;&gt;IPDR&lt;&#x2F;a&gt; Docker HTTP API implementation reference license to Google in &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ipdr&#x2F;ipdr&#x2F;blob&#x2F;master&#x2F;server&#x2F;registry&#x2F;registry.go#L1&quot;&gt;code&lt;&#x2F;a&gt;. On the other hand, official ipfs node implementation, with go, has really good organised &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ipfs&#x2F;go-ipfs#packages&quot;&gt;packages&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;rust&quot;&gt;Rust&lt;&#x2F;h4&gt;
+&lt;p&gt;Interesting in Rust we found the project &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ContainerSolutions&#x2F;trow&quot;&gt;trow&lt;&#x2F;a&gt; has even envision, under &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ContainerSolutions&#x2F;trow&#x2F;blob&#x2F;main&#x2F;docs&#x2F;ARCHITECTURE.md#advanced-distribution-deployment&quot;&gt;Advanced Distribution Deployment&lt;&#x2F;a&gt; as:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Every (or most) nodes run an instance of the Trow Back End. These instances communicate and share files with each other in a P2P style (similar to BitTorrent). This should provide an enormous speed in up in image deployment time for the cluster. It should also be designed to place minimal extra load on nodes.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Only alpha toolkit for ipfs under &lt;a href=&quot;https:&#x2F;&#x2F;docs.rs&#x2F;ipfs&#x2F;0.2.1&#x2F;ipfs&#x2F;&quot;&gt;ipfs 0.2.1&lt;&#x2F;a&gt; but promising.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;python&quot;&gt;Python&lt;&#x2F;h4&gt;
+&lt;p&gt;Red hat&#x27;s container registry &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;quay&#x2F;quay&quot;&gt;quay&lt;&#x2F;a&gt; projects is in Python but really hard to find any ipfs node implementation at the time of &lt;a href=&quot;https:&#x2F;&#x2F;duckduckgo.com&#x2F;?q=ipfs+server+node+python&amp;amp;ia=web&quot;&gt;search&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>
